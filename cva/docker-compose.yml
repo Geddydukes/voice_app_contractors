@@ -1,0 +1,55 @@
+version: "3.11"
+
+services:
+  conversation-service:
+    build: ./conversation-service
+    env_file: .env
+    ports:
+      - "8001:8000"
+
+  telephony-service:
+    build: ./telephony-service
+    env_file: .env
+    ports:
+      - "8002:8000"
+    volumes:
+      - lead_store_data:/data
+
+  calendar-service:
+    build: ./calendar-service
+    env_file: .env
+    ports:
+      - "8003:8000"
+
+  mapping-service:
+    build: ./mapping-service
+    env_file: .env
+    ports:
+      - "8004:8000"
+
+  data-service:
+    build: ./data-service
+    env_file: .env
+    ports:
+      - "8005:8000"
+    volumes:
+      - lead_store_data:/data
+
+  notification-service:
+    build: ./notification-service
+    env_file: .env
+    ports:
+      - "8006:8000"
+    volumes:
+      - lead_store_data:/data
+
+  dashboard-service:
+    build: ./dashboard-service
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - lead_store_data:/data
+
+volumes:
+  lead_store_data:

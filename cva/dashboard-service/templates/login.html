@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h1>Sign in</h1>
+  <form method="post" class="form-grid narrow">
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required />
+    </label>
+    <label>
+      <span>Password</span>
+      <input type="password" name="password" required />
+    </label>
+    <button type="submit" class="primary">Continue</button>
+  </form>
+  <p class="hint">Need an account? Ask your owner to add you from the Settings page.</p>
+</section>
+{% endblock %}

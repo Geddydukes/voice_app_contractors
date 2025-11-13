@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package cva.shared;
+
+message ConversationRequest {
+  string session_id = 1;
+  string user_id = 2;
+  string utterance = 3;
+  map<string, string> metadata = 4;
+}
+
+message ConversationResponse {
+  string session_id = 1;
+  string response_text = 2;
+  string routing_decision = 3;
+  string language = 4;
+}
+
+message TaskDispatch {
+  string task_id = 1;
+  string target_service = 2;
+  string payload = 3;
+}
+
+message TaskResult {
+  string task_id = 1;
+  string status = 2;
+  string details = 3;
+}
+
+service ConversationBroker {
+  rpc SendUtterance(ConversationRequest) returns (ConversationResponse);
+  rpc NotifyTaskResult(TaskResult) returns (ConversationResponse);
+}

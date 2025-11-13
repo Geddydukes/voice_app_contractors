@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h1>Welcome!</h1>
+  <p class="lead">
+    Let's create your contractor owner account so you can connect services and start receiving voice leads.
+  </p>
+  <form method="post" class="form-grid">
+    <label>
+      <span>Full name</span>
+      <input type="text" name="name" required />
+    </label>
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required />
+    </label>
+    <label>
+      <span>Password</span>
+      <input type="password" name="password" minlength="8" required />
+    </label>
+    <label>
+      <span>Confirm password</span>
+      <input type="password" name="confirm_password" minlength="8" required />
+    </label>
+    <button type="submit" class="primary">Create owner account</button>
+  </form>
+</section>
+{% endblock %}
