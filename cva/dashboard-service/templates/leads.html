@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="page-title">Leads &amp; Calls</h1>
+{% if leads %}
+<div class="lead-list">
+  {% for lead in leads %}
+  <article class="lead-item">
+    <header>
+      <div>
+        <h2>{{ lead.get('caller_name') }} <small>{{ lead.get('caller_phone') }}</small></h2>
+        {% if lead.get('caller_email') %}<p>{{ lead.get('caller_email') }}</p>{% endif %}
+      </div>
+      <div class="meta">
+        <span>Received {{ lead.get('created_at') }}</span>
+        <span>Updated {{ lead.get('updated_at') }}</span>
+      </div>
+    </header>
+    {% if lead.get('summary') %}
+    <p class="summary">{{ lead.get('summary') }}</p>
+    {% elif lead.get('transcript') %}
+    <details>
+      <summary>View call transcript</summary>
+      <p class="transcript">{{ lead.get('transcript') }}</p>
+    </details>
+    {% endif %}
+    <section class="lead-details">
+      <div>
+        <h3>Appointment</h3>
+        <p>{{ lead.get('appointment_time') or 'Not booked yet' }}</p>
+      </div>
+      <div>
+        <h3>Calls</h3>
+        <ul>
+          {% for call in lead.get('calls', []) %}
+          <li>
+            <strong>{{ call.get('direction') or 'inbound' }}</strong>
+            <span>{{ call.get('created_at') }}</span>
+            {% if call.get('duration_seconds') %}
+            <span>{{ call.get('duration_seconds') }}s</span>
+            {% endif %}
+          </li>
+          {% else %}
+          <li>No call records yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3>Messages</h3>
+        <ul>
+          {% for message in lead.get('messages', []) %}
+          <li>
+            <strong>{{ message.get('direction') }} {{ message.get('channel') }}</strong>
+            <span>{{ message.get('recipient') }}</span>
+            <span>{{ message.get('created_at') }}</span>
+          </li>
+          {% else %}
+          <li>No notifications recorded.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p class="hint">Once the assistant captures leads they'll appear here with transcripts and notifications.</p>
+{% endif %}
+{% endblock %}

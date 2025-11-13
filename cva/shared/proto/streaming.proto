@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package cva.shared.streaming;
+
+message AudioFrame {
+  string session_id = 1;
+  int32 sequence = 2;
+  int32 sample_rate = 3;
+  bytes payload = 4;
+}
+
+message TranscriptFrame {
+  string session_id = 1;
+  int32 sequence = 2;
+  string text = 3;
+  bool is_final = 4;
+}
+
+message LLMFrame {
+  string session_id = 1;
+  int32 sequence = 2;
+  string text = 3;
+  bool is_final = 4;
+}
+
+message SynthesizedAudio {
+  string session_id = 1;
+  int32 sequence = 2;
+  int32 sample_rate = 3;
+  bytes payload = 4;
+  bool is_final = 5;
+}
+
+service VoiceStreaming {
+  rpc StreamCall(stream AudioFrame) returns (stream SynthesizedAudio);
+}

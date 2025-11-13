@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title if title else "CVA Dashboard" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="brand">Contractor Voice Assistant</div>
+      <nav>
+        {% if current_user %}
+        <a href="/dashboard">Dashboard</a>
+        <a href="/leads">Leads &amp; Calls</a>
+        {% if current_user.role == 'owner' %}
+        <a href="/settings">Settings</a>
+        {% endif %}
+        <a href="/logout" class="logout">Sign out</a>
+        {% else %}
+        <a href="/login">Sign in</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    {% if flashes %}
+    <div class="flash-container">
+      {% for flash in flashes %}
+      <div class="flash {{ flash.category }}">{{ flash.message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <main class="content">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">&copy; {{ now().year if now else 2024 }} Contractor Voice Assistant</footer>
+  </body>
+</html>

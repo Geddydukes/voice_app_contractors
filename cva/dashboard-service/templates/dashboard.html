@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="page-title">Daily snapshot</h1>
+<section class="metrics">
+  <div class="metric">
+    <span class="metric-value">{{ metrics.total_leads }}</span>
+    <span class="metric-label">Leads captured</span>
+  </div>
+  <div class="metric">
+    <span class="metric-value">{{ metrics.scheduled_leads }}</span>
+    <span class="metric-label">Booked appointments</span>
+  </div>
+  <div class="metric">
+    <span class="metric-value">{{ metrics.total_calls }}</span>
+    <span class="metric-label">Call recordings</span>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Latest lead</h2>
+  {% if latest_lead %}
+  <div class="lead-card">
+    <div>
+      <h3>{{ latest_lead.get('caller_name') }}</h3>
+      <p>{{ latest_lead.get('caller_phone') }}</p>
+      {% if latest_lead.get('summary') %}
+      <p class="summary">{{ latest_lead.get('summary') }}</p>
+      {% elif latest_lead.get('transcript') %}
+      <p class="summary">{{ latest_lead.get('transcript')|truncate(220, True, '…') }}</p>
+      {% endif %}
+    </div>
+    <dl>
+      <div>
+        <dt>Received</dt>
+        <dd>{{ latest_lead.get('created_at') }}</dd>
+      </div>
+      <div>
+        <dt>Appointment</dt>
+        <dd>{{ latest_lead.get('appointment_time') or 'Not booked yet' }}</dd>
+      </div>
+    </dl>
+    <a href="/leads" class="link">View all leads →</a>
+  </div>
+  {% else %}
+  <p class="hint">No leads yet. Once the assistant takes calls they'll appear here automatically.</p>
+  {% endif %}
+</section>
+{% endblock %}

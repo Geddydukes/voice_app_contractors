@@ -1,0 +1,7 @@
+Tenant: cascade-plumbing
+Owner: Owner <ana@cascadeflowplumbing.com>
+Services: Water heater installations, Emergency repairs, Fixture replacements, Drain cleaning
+Base Location: 500 5th Ave N, Seattle, WA 98109
+Radius (km): 35.0
+Calendar: google / dispatch@cascadeflowplumbing.com
+Demo Seeded: True (regenerate by rerunning admin:onboard --seed-demo)

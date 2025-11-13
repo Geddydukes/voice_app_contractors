@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CVA Pricing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: "Inter", Arial, sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+        margin: 0;
+        padding: 2.5rem 1.5rem 4rem;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.25rem;
+      }
+      table {
+        width: min(960px, 100%);
+        margin: 2rem auto;
+        border-collapse: collapse;
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      }
+      th, td {
+        padding: 1.25rem;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+      }
+      th {
+        background: #0f172a;
+        color: #f8fafc;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.85rem;
+      }
+      tbody tr:nth-child(even) {
+        background: rgba(148, 163, 184, 0.1);
+      }
+      section {
+        width: min(720px, 100%);
+        margin: 0 auto 2rem;
+        line-height: 1.7;
+      }
+      ul {
+        padding-left: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contractor Voice Assistant Pricing</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Monthly</th>
+          <th>Included Minutes</th>
+          <th>Seats</th>
+          <th>Key Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pilot</td>
+          <td>$799</td>
+          <td>1,000</td>
+          <td>3</td>
+          <td>Full bilingual assistant, dashboard access, SMS/email notifications, onboarding concierge</td>
+        </tr>
+        <tr>
+          <td>Growth</td>
+          <td>$1,499</td>
+          <td>2,500</td>
+          <td>8</td>
+          <td>Everything in Pilot plus multi-location routing, priority support, analytics exports</td>
+        </tr>
+        <tr>
+          <td>Scale</td>
+          <td>Custom</td>
+          <td>5,000+</td>
+          <td>Unlimited</td>
+          <td>Dedicated success manager, SLA-backed uptime, custom integrations</td>
+        </tr>
+      </tbody>
+    </table>
+    <section>
+      <h2>Add-ons</h2>
+      <ul>
+        <li><strong>Extra Minutes</strong>: $0.25 per minute beyond plan limits.</li>
+        <li><strong>Additional Numbers</strong>: $10/month per local DID.</li>
+        <li><strong>Premium Voices</strong>: $99/month for branded neural voice fonts.</li>
+      </ul>
+      <h2>Implementation Timeline</h2>
+      <ol>
+        <li>Kickoff + discovery call (30 minutes).</li>
+        <li>Configure tenant with <code>cva admin:new-tenant</code> toolkit (15 minutes).</li>
+        <li>Go-live rehearsal with synthetic call suite (30 minutes).</li>
+        <li>Production launch and performance review (7-day checkpoint).</li>
+      </ol>
+      <h2>Payment Terms</h2>
+      <ul>
+        <li>Monthly subscription billed at the start of the period.</li>
+        <li>Cancel anytime with 30 days notice.</li>
+        <li>Annual prepay discount: 12% off plus white-labeled landing page hosting.</li>
+      </ul>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="page-title">Contractor settings</h1>
+<section class="panel">
+  <h2>Services</h2>
+  <form method="post" class="form-grid">
+    <label>
+      <span>Service offerings</span>
+      <textarea name="services" rows="3" placeholder="Water heater installs, emergency repairs...">{{ settings.services }}</textarea>
+    </label>
+    <label>
+      <span>Service area radius (km)</span>
+      <input type="number" step="0.1" min="0" name="service_area_radius" value="{{ settings.service_area_radius }}" />
+    </label>
+    <label>
+      <span>Base location</span>
+      <input type="text" name="base_location" placeholder="Downtown Seattle" value="{{ settings.base_location }}" />
+    </label>
+    <button type="submit" class="primary">Save services</button>
+  </form>
+</section>
+
+<section class="panel">
+  <h2>Calendar connection</h2>
+  {% if settings.calendar_status == 'connected' %}
+  <div class="connected">
+    <p>Connected to {{ settings.calendar_provider }} as {{ settings.calendar_account }}.</p>
+    <p class="hint">Synced {{ settings.calendar_connected_at }}.</p>
+    <form method="post" action="/settings/calendar/disconnect">
+      <button type="submit" class="secondary">Disconnect calendar</button>
+    </form>
+  </div>
+  {% else %}
+  <form method="post" action="/settings/calendar/connect" class="form-grid narrow">
+    <label>
+      <span>Provider</span>
+      <input type="text" name="provider" placeholder="Google Workspace" required />
+    </label>
+    <label>
+      <span>Account email</span>
+      <input type="email" name="account" placeholder="calendar@example.com" required />
+    </label>
+    <button type="submit" class="primary">Connect calendar</button>
+  </form>
+  {% endif %}
+</section>
+
+<section class="panel">
+  <h2>Team access</h2>
+  <div class="staff-list">
+    {% if staff %}
+    <ul>
+      {% for member in staff %}
+      <li>
+        <strong>{{ member.name }}</strong>
+        <span>{{ member.email }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="hint">No staff yet. Invite someone below to share live call insights.</p>
+    {% endif %}
+  </div>
+  <form method="post" action="/settings/staff" class="form-grid narrow">
+    <label>
+      <span>Full name</span>
+      <input type="text" name="name" required />
+    </label>
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required />
+    </label>
+    <label>
+      <span>Temporary password</span>
+      <input type="password" name="password" minlength="8" required />
+    </label>
+    <button type="submit" class="secondary">Add staff member</button>
+  </form>
+</section>
+{% endblock %}

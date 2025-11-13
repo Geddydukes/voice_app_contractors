@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contractor Voice Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: "Inter", "Segoe UI", sans-serif;
+        background: #0f172a;
+        color: #f8fafc;
+      }
+      body {
+        margin: 0;
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1.5rem;
+        background: radial-gradient(circle at top, #1e40af, #0f172a);
+      }
+      .card {
+        max-width: 960px;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.85);
+        border-radius: 24px;
+        box-shadow: 0 25px 45px rgba(15, 23, 42, 0.4);
+        padding: 3rem;
+        backdrop-filter: blur(18px);
+      }
+      h1 {
+        font-size: 2.75rem;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.04em;
+      }
+      p.lead {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        color: rgba(241, 245, 249, 0.85);
+      }
+      .grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        margin-bottom: 2.5rem;
+      }
+      .feature {
+        background: rgba(30, 64, 175, 0.25);
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      a.button {
+        display: inline-block;
+        padding: 0.95rem 1.75rem;
+        border-radius: 9999px;
+        background: linear-gradient(135deg, #38bdf8, #6366f1);
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.2s ease;
+      }
+      a.button:hover {
+        transform: translateY(-2px);
+      }
+      .video-callout {
+        padding: 1.5rem;
+        border-radius: 16px;
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px dashed rgba(148, 163, 184, 0.3);
+      }
+      .video-callout strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Turn Calls into Booked Jobs</h1>
+      <p class="lead">
+        Contractor Voice Assistant answers every call in English or Spanish, qualifies the lead,
+        and books the job directly on your calendar within seconds.
+      </p>
+      <div class="grid">
+        <div class="feature">
+          <h2>Voice-to-Calendar</h2>
+          <p>AI answers, transcribes, and schedules service calls with travel-aware availability.</p>
+        </div>
+        <div class="feature">
+          <h2>Live Dashboard</h2>
+          <p>See new leads, transcripts, and SMS history in a secure, contractor-friendly CRM.</p>
+        </div>
+        <div class="feature">
+          <h2>Bilingual by Default</h2>
+          <p>Automatic language detection delivers warm greetings and confirmations in EN/ES.</p>
+        </div>
+        <div class="feature">
+          <h2>Easy Pilot Launch</h2>
+          <p>Deploy a fully branded assistant in under 15 minutes with our admin toolkit.</p>
+        </div>
+      </div>
+      <div class="video-callout">
+        <strong>Watch the 60-Second Demo</strong>
+        <p>
+          Share this script with marketing or record the screen using the companion
+          <code>demo_video_script.md</code>. Drop the exported MP4 into your CMS and link it here.
+        </p>
+      </div>
+      <div class="cta">
+        <a class="button" href="mailto:hello@contractorva.com?subject=Book%20a%20pilot">Book a Pilot</a>
+        <a class="button" href="pricing_sheet.html">View Pricing</a>
+      </div>
+    </div>
+  </body>
+</html>
